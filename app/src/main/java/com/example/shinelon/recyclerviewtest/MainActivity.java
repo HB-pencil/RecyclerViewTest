@@ -1,6 +1,8 @@
 package com.example.shinelon.recyclerviewtest;
 
+import android.app.Service;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -52,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         private TextView mTextView;
         public cusViewholder(View itemView){
             super(itemView);
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+                    vibrator.vibrate(70);
+                    return true;
+                }
+            });
             mTextView = (TextView) itemView.findViewById(R.id.text_view);
         }
     }
