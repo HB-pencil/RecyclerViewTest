@@ -44,10 +44,6 @@ public class ItemTouchHelperCallBack extends ItemTouchHelper.Callback {
          mListener.itemRemove(viewHolder.getLayoutPosition());
     }
 
-    @Override
-    public boolean isLongPressDragEnabled() {
-        return  true;
-    }
 
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
@@ -72,5 +68,10 @@ public class ItemTouchHelperCallBack extends ItemTouchHelper.Callback {
             viewHolder.itemView.setAlpha(1- Math.abs(dX)/viewHolder.itemView.getWidth());
             viewHolder.itemView.setScaleY(1-Math.abs(dX)/viewHolder.itemView.getWidth());
         }
+    }
+
+    @Override
+    public boolean isLongPressDragEnabled() {
+        return false;
     }
 }
